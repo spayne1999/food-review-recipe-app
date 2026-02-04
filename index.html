@@ -1,10 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Food Review & Recipe App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Review & Recipe Lookup</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Food Review & Recipe Lookup</h1>
-  <p>This is the frontend for the project.</p>
+  <header class="topbar">
+    <div class="wrap headerWrap">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">🍽️</div>
+        <div class="brandText">
+          <h1>Food Review & Recipe Lookup</h1>
+          <p class="sub">Search recipes online (TheMealDB), save favorites, add reviews, export CSV.</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="row">
+          <input type="text" id="searchInput" placeholder="Search recipes (ex: chicken, pasta, tacos)..." autocomplete="off" />
+          <button id="searchBtn">Search</button>
+          <button id="randomBtn" class="alt">Random</button>
+        </div>
+
+        <div class="row filters">
+          <select id="categorySelect" title="Filter by category">
+            <option value="">All Categories</option>
+          </select>
+
+          <select id="areaSelect" title="Filter by cuisine/area">
+            <option value="">All Areas</option>
+          </select>
+
+          <select id="sortSelect" title="Sort search results">
+            <option value="az">Sort: A → Z</option>
+            <option value="za">Sort: Z → A</option>
+          </select>
+
+          <button id="favoritesBtn" class="alt">
+            Favorites <span id="favCount" class="badge">0</span>
+          </button>
+
+          <button id="themeBtn" class="alt" title="Toggle theme">🌙</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="toast" class="toast hidden"></div>
+
+    <section id="toolbar" class="toolbar hidden">
+      <button id="backBtn" class="ghost">← Back</button>
+      <div class="toolbarRight">
+        <span id="contextTitle" class="contextTitle"></span>
+      </div>
+    </section>
+
+    <section id="content" class="content"></section>
+  </main>
+
+  <footer class="footer">
+    <span>Data: TheMealDB</span><span>•</span>
+    <span>Favorites & reviews saved in localStorage</span><span>•</span>
+    <span>Export reviews to CSV</span>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
